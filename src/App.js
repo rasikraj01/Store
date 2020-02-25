@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+import Cart from './components/cart';
+import ProductList from './components/productlist';
+import Search from './components/search';
+import Filter from'./components/filter';
+
+import {ProductProvider} from './components/productContext';
 
 function App() {
+  
+  let [cartItems, setCartItems] = useState([{name: 'item1'}])
+
+  const handleCartUpdate = (newItem) => {
+    // add logic to handle multiple items
+    setCartItems([...cartItems, newItem])
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ProductProvider>
+      <div className="App">
+        {/* <Search/> */}
+        <ProductList handleCartUpdate={handleCartUpdate}/>
+        <Cart cartItems={cartItems}/>
+      </div>
+    </ProductProvider>
   );
 }
 
