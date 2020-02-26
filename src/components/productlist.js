@@ -19,7 +19,7 @@ function ProductList(props) {
         <div>
             <input type="text" onChange={handleSearch}/>
             {filterProducts.map((item, index) => {
-                return <Product name={item.name} key={index} handleCartUpdate={props.handleCartUpdate}/>
+                return <Product name={item.name} color={item.color} key={index} handleCartUpdate={props.handleCartUpdate}/>
             })}
         </div>
   );

@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 
 import Cart from './components/cart';
 import ProductList from './components/productlist';
-import Search from './components/search';
 import Filter from'./components/filter';
 
 import {ProductProvider} from './components/productContext';
 
 function App() {
   
-  let [cartItems, setCartItems] = useState([{name: 'item1'}])
+  let [cartItems, setCartItems] = useState([{name: 'item1', color : 'red'}])
 
   const handleCartUpdate = (newItem) => {
     // add logic to handle multiple items
@@ -19,7 +18,7 @@ function App() {
   return (
     <ProductProvider>
       <div className="App">
-        {/* <Search/> */}
+        <Filter/>
         <ProductList handleCartUpdate={handleCartUpdate}/>
         <Cart cartItems={cartItems}/>
       </div>
