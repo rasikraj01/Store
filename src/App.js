@@ -8,22 +8,26 @@ import {ProductProvider} from './components/productContext';
 
 function App() {
   
-  let [cartItems, setCartItems] = useState([{name: 'item1', color : 'red'}])
+	let [cartItems, setCartItems] = useState([])
 
-  const handleCartUpdate = (newItem) => {
-    // add logic to handle multiple items
-    setCartItems([...cartItems, newItem])
-  }
+	const handleCartUpdate = (newItem) => {
+		// add logic to handle multiple items
+		setCartItems([...cartItems, newItem])
+	}
 
-  return (
-    <ProductProvider>
-      <div className="App">
-        <Filter/>
-        <ProductList handleCartUpdate={handleCartUpdate}/>
-        <Cart cartItems={cartItems}/>
-      </div>
-    </ProductProvider>
-  );
+	const handleClearCart = () => {
+		setCartItems([])
+	}
+
+	return (
+	<ProductProvider>
+    	<div className="App">
+    		<Filter/>
+    		<ProductList handleCartUpdate={handleCartUpdate}/>
+    		<Cart cartItems={cartItems} handleClearCart={handleClearCart} handleCartUpdate={handleCartUpdate}/>
+    	</div>
+	</ProductProvider>
+	);
 }
 
 export default App;
