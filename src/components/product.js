@@ -9,7 +9,9 @@ function Product(props) {
         <div>
             <p>
             {props.name}<br/>
-            {props.color}<br/>
+            {props.color.map((color, index) => {
+                return color
+            })}<br/>
             <button onClick={handleAddToCart}>Add to cart</button>
             </p>
         </div>

@@ -1,18 +1,22 @@
 export const data = [
-{
+  {
     "name": "iphone",
-    "color" : "red"
+    "color" : ["red", "blue"],
+    "size" : ["8", "9", "10"]
   },
   {
     "name": "oneplus",
-    "color" : "blue"
+    "color" : ["blue", "green"],
+    "size" : ["9", "10"]
   },
   {
     "name": "samsung",
-    "color" :"red"
+    "color" :["red", "pink"],
+    "size" : ["8", "10"]
   },
   {
     "name": "motorola",
-    "color": "blue"
+    "color": ["blue", "green"],
+    "size" : ["8", "9"]
   }
 ]
