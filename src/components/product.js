@@ -3,14 +3,19 @@ import React, {} from 'react';
 function Product(props) {
 
     const handleAddToCart = () => {
-        props.handleCartUpdate({name : props.name})
+        props.handleCartUpdate({id: props.id, name : props.name, price : props.price})
     }
     return (
         <div>
             <p>
             {props.name}<br/>
+            {props.price}<br/>
             {props.color.map((color, index) => {
-                return color
+                return `${color} `
+            })}<br/>
+
+            {props.size.map((size, index) => {
+                return `${size} `
             })}<br/>
             <button onClick={handleAddToCart}>Add to cart</button>
             </p>

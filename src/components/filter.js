@@ -5,10 +5,10 @@ import { data } from './data';
 
 
 function Filter() {
+    
     let [products, setProducts] = useContext(ProductContext);
     let [filter, setFilter] = useState([])
 
-    // let [filter, setfilter] = useState([])
 
     let handlefilterupdate = async (e) => {
         const x = (e => {
@@ -42,8 +42,6 @@ function Filter() {
                 }
             }
             
-            console.log('filter');
-            console.log(filter)
             return filter
         })
 
@@ -53,14 +51,24 @@ function Filter() {
             if(item.is_filter_enable)
                     return item
         })
-        console.log('en');
+
         
-        console.log(enabled_filters)
-        
-        if(enabled_filters.length != 0){
+        if(enabled_filters.length != 0) {
             enabled_filters.forEach((item) => {
                 data.forEach((data) => {
-                if (data[item.key].includes(item.value)) new_Data.push(data)
+                if (data[item.key].includes(item.value)){
+                    
+                    if (new_Data.length === 0){
+                        new_Data.push(data)
+                    }else{
+                        let isItemAlreadyPresent = new_Data.findIndex((e) => {
+                            return e.id === data.id
+                        })
+                        if(isItemAlreadyPresent === -1){
+                            new_Data.push(data)
+                        }
+                    }
+                }
                 })
             })
             setProducts(new_Data)
@@ -80,7 +88,7 @@ function Filter() {
             Size <br/>
             <input type="checkbox" name="size" value="8" onClick={handlefilterupdate}/> 8 <br/>
             <input type="checkbox" name="size" value="9" onClick={handlefilterupdate}/> 9 <br/>
-            <input type="checkbox" name="size" value="9" onClick={handlefilterupdate}/> 10 <br/>
+            <input type="checkbox" name="size" value="10" onClick={handlefilterupdate}/> 10 <br/>
         </div>
   );
 }

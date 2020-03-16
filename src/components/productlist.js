@@ -21,7 +21,14 @@ function ProductList(props) {
             <input type="text" onChange={handleSearch} placeholder="Search Products"/><br/>
             {filterProducts.length} products <br/>
             {filterProducts.map((item, index) => {
-                return <Product name={item.name} color={item.color} key={index} handleCartUpdate={props.handleCartUpdate}/>
+                return <Product
+                    id={item.id}
+                    name={item.name}
+                    price={item.price}
+                    color={item.color}
+                    size={item.size}
+                    key={index}
+                    handleCartUpdate={props.handleCartUpdate}/>
             })}
         </div>
   );

@@ -9,10 +9,35 @@ import {ProductProvider} from './components/productContext';
 function App() {
   
 	let [cartItems, setCartItems] = useState([])
+	let [totalAmount , setTotalAmount] = useState(0)
 
 	const handleCartUpdate = (newItem) => {
-		// add logic to handle multiple items
-		setCartItems([...cartItems, newItem])
+		setTotalAmount((totalAmount) => {
+			return totalAmount + newItem.price
+		})
+
+		setCartItems((cartItems) => {
+			if (cartItems.length === 0){
+				newItem.quantity = 1
+				return [newItem]
+			}else{
+				let indexOfItem = cartItems.findIndex((e) => {
+					return e.id === newItem.id
+				})
+				console.log(indexOfItem);
+				
+
+				if (indexOfItem === -1){
+					newItem.quantity = 1
+					return [newItem, ...cartItems]
+				}else{
+					cartItems[indexOfItem].quantity += 1
+					console.log(cartItems);
+					
+					return cartItems
+				}
+			}
+		})
 	}
 
 	const handleClearCart = () => {
@@ -24,7 +49,12 @@ function App() {
     	<div className="App">
     		<Filter/>
     		<ProductList handleCartUpdate={handleCartUpdate}/>
-    		<Cart cartItems={cartItems} handleClearCart={handleClearCart} handleCartUpdate={handleCartUpdate}/>
+			<Cart 
+				cartItems={cartItems}  
+				totalAmount={totalAmount}
+				handleClearCart={handleClearCart} 
+				handleCartUpdate={handleCartUpdate}
+			/>
     	</div>
 	</ProductProvider>
 	);

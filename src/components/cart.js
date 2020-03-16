@@ -12,12 +12,19 @@ function Cart(props) {
             <button onClick={props.handleClearCart}>Clear Cart</button>
             {
                 (toggle) && 
-                <div class="cart">
+                <div className="cart">
                     {
                         props.cartItems.map((item, index) => {
-                            return <CartItem name={item.name}/>
+                            return <CartItem 
+                                name={item.name} 
+                                price={item.price} 
+                                key={index} 
+                                quantity={item.quantity}
+                            />
                         })
                     }
+                    <br/>
+                <p>Total Amount : {props.totalAmount}</p>
                     <button>Checkout</button>
                 </div>
             }
