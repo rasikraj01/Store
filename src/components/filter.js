@@ -3,6 +3,7 @@ import React, {useState, useContext} from 'react';
 import { ProductContext } from './productContext';
 import { data } from './data';
 
+import '../scss/filter.scss'
 
 function Filter() {
     
@@ -18,8 +19,6 @@ function Filter() {
                     value:e.target.value
                 }
         })(e)
-
-
 
         await setFilter((e)=> {
             if(filter.length===0){
@@ -45,7 +44,7 @@ function Filter() {
             return filter
         })
 
-        const new_Data = []
+        let new_Data = []
 
         let enabled_filters = filter.filter((item) => {
             if(item.is_filter_enable)
@@ -53,14 +52,26 @@ function Filter() {
         })
 
         
+        // if(enabled_filters.length != 0) {
+        //     enabled_filters.forEach((item) => {
+        //         new_Data = data.filter((data) => {
+        //             return data[item.key].includes(item.value)
+        //         })
+        //     })
+        //     setProducts(new_Data)
+        // }
+        // else{
+        //     setProducts(data)
+        // }
+
         if(enabled_filters.length != 0) {
             enabled_filters.forEach((item) => {
                 data.forEach((data) => {
                 if (data[item.key].includes(item.value)){
-                    
                     if (new_Data.length === 0){
                         new_Data.push(data)
                     }else{
+                        // check if item already present in new Data to avoid redundancy
                         let isItemAlreadyPresent = new_Data.findIndex((e) => {
                             return e.id === data.id
                         })
@@ -79,16 +90,29 @@ function Filter() {
 
     }
     return (
-        <div>
-            Filter<br/>
-            Color <br/>
-            <input type="checkbox" name="color" value="red" onClick={handlefilterupdate}/> red <br/>
-            <input type="checkbox" name="color" value="blue" onClick={handlefilterupdate}/> Blue <br/>
+        <div className="filter">
+            <h2>Filter</h2>
 
-            Size <br/>
-            <input type="checkbox" name="size" value="8" onClick={handlefilterupdate}/> 8 <br/>
-            <input type="checkbox" name="size" value="9" onClick={handlefilterupdate}/> 9 <br/>
-            <input type="checkbox" name="size" value="10" onClick={handlefilterupdate}/> 10 <br/>
+            <div>
+                <h3>Color</h3>
+                <input type="checkbox" name="color" value="red" onClick={handlefilterupdate}/> <label>Red</label> <br/>
+                <input type="checkbox" name="color" value="blue" onClick={handlefilterupdate}/> <label>Blue</label> <br/>
+            </div>
+
+            <div>
+                <h3>Size</h3>
+                <input type="checkbox" name="size" value="8" onClick={handlefilterupdate}/> <label>8</label> <br/>
+                <input type="checkbox" name="size" value="9" onClick={handlefilterupdate}/> <label>9</label> <br/>
+                <input type="checkbox" name="size" value="10" onClick={handlefilterupdate}/> <label>10</label> <br/>
+            </div>
+
+            <div>
+                <h3>Designer</h3>
+                <input type="checkbox" name="designer" value="apple" onClick={handlefilterupdate}/> <label>apple</label> <br/>
+                <input type="checkbox" name="designer" value="oneplus" onClick={handlefilterupdate}/> <label>oneplus</label> <br/>
+                <input type="checkbox" name="designer" value="samsung" onClick={handlefilterupdate}/> <label>samsung</label> <br/>
+            </div>
+
         </div>
   );
 }

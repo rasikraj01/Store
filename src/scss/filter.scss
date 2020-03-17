@@ -1,0 +1,23 @@
+.filter{
+    padding-top: 50px ;
+    margin: 0 50px;
+    min-height: 100%;
+    border-right: 1px solid black;
+    h2{
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+    }
+    div{
+        margin-top: 40px;
+        
+        font-family: 'Open Sans', sans-serif;
+        font-size: 15px;
+        h3{
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+    }
+}

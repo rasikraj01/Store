@@ -1,5 +1,8 @@
 import React, {useState} from 'react';
+
 import CartItem from './cartitem';
+
+import '../scss/cart.scss';
 
 function Cart(props) {
     let [toggle, setToggle] = useState(true)
@@ -7,15 +10,22 @@ function Cart(props) {
     const handleToggle = () => setToggle(!toggle)
 
     return (
-        <div>
-            <button onClick={handleToggle}>Cart {props.cartItems.length}</button>
-            <button onClick={props.handleClearCart}>Clear Cart</button>
+        <div className="cart">
+            <button onClick={handleToggle} className="toggleButton">
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+                <span>{props.cartItems.length}</span>
+            </button>
             {
                 (toggle) && 
-                <div className="cart">
+                <div className="cartDetail">
+                    <h3>YOUR CART</h3>
+                    <div className="actions">
+                        <button className="clearCart" onClick={props.handleClearCart}>Clear Cart</button>
+                        <button onClick={handleToggle}>X</button>
+                    </div>
                     {
                         props.cartItems.map((item, index) => {
-                            return <CartItem 
+                            return <CartItem
                                 name={item.name} 
                                 price={item.price} 
                                 key={index} 
@@ -24,8 +34,8 @@ function Cart(props) {
                         })
                     }
                     <br/>
-                <p>Total Amount : {props.totalAmount}</p>
-                    <button>Checkout</button>
+                <p className="totalAmt">Total Amount : $ {props.totalAmount}</p>
+                    <h3 className="checkout">Checkout</h3>
                 </div>
             }
         </div>

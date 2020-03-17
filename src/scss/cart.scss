@@ -1,0 +1,98 @@
+.cart{
+    .toggleButton{
+        position: absolute;
+        right: 5vw;
+        top: 50px;
+        z-index: 100;
+        color: black;
+        outline: none;
+        border: none;
+        i{
+            font-size: 30px;
+        }
+        i:hover{
+            cursor: pointer;
+        }
+        span{
+            margin-left: -10px;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 15px;
+            padding: 5px 7px;
+            border-radius: 50%;
+            background: #E3B04B;;
+        }
+    }
+    .cartDetail{
+        background-color: white;
+        border-left: 1px solid black;
+        line-height: normal;
+        width: 20vw;
+        height: calc(100% - 130px);
+        z-index: 100;
+        position: absolute;
+        right: 0;
+        h3{
+            font-weight: 300;
+            padding: 10px;
+            width: 100%;
+            color: white;
+            background-color: black;
+            text-align: center;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+        button {
+            outline: none;
+        }
+        .actions{
+            width: 95%;
+            margin: auto;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            button{
+                font-size: 15px;
+                padding: 5px;
+                border: none;
+            }
+            button:hover{
+                cursor: pointer;
+            }
+            .clearCart{
+
+                border: 1px solid black;
+            }
+
+        }
+        .checkout{
+            text-transform: uppercase;
+            font-weight: 400;
+            color: black;
+            background-color: #E3B04B;
+            bottom:0;
+            position: absolute;
+        }
+        .checkout:hover{
+            cursor: pointer;
+        }
+        .cartItem{
+            display: flex;
+            width: 90%;
+            margin: 5px auto;
+            padding: 5px;
+            border: 1px solid black;
+            font-size: 20px;
+            justify-content: space-evenly;
+            h5{
+                font-weight: 300;
+            }
+        }
+        .totalAmt{
+            position: absolute;
+            bottom: 70px;
+            font-size: 20px;
+            left: 10px;
+        }
+    }
+}

@@ -6,6 +6,8 @@ import Filter from'./components/filter';
 
 import {ProductProvider} from './components/productContext';
 
+import './scss/app.scss';
+
 function App() {
   
 	let [cartItems, setCartItems] = useState([])
@@ -24,7 +26,6 @@ function App() {
 				let indexOfItem = cartItems.findIndex((e) => {
 					return e.id === newItem.id
 				})
-				console.log(indexOfItem);
 				
 
 				if (indexOfItem === -1){
@@ -32,8 +33,6 @@ function App() {
 					return [newItem, ...cartItems]
 				}else{
 					cartItems[indexOfItem].quantity += 1
-					console.log(cartItems);
-					
 					return cartItems
 				}
 			}
@@ -42,19 +41,24 @@ function App() {
 
 	const handleClearCart = () => {
 		setCartItems([])
+		setTotalAmount(0)
 	}
 
 	return (
 	<ProductProvider>
     	<div className="App">
+			<nav>
+				<h1 className="storeName">LUXUS</h1>
+				<Cart 
+					cartItems={cartItems}  
+					totalAmount={totalAmount}
+					handleClearCart={handleClearCart} 
+					handleCartUpdate={handleCartUpdate}
+				/>
+			</nav>
     		<Filter/>
     		<ProductList handleCartUpdate={handleCartUpdate}/>
-			<Cart 
-				cartItems={cartItems}  
-				totalAmount={totalAmount}
-				handleClearCart={handleClearCart} 
-				handleCartUpdate={handleCartUpdate}
-			/>
+			
     	</div>
 	</ProductProvider>
 	);

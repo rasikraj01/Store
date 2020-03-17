@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400&display=swap');
+
+
+*{
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
+    color: #101010;
+    font-family: 'Open Sans', sans-serif;
+}
+.App{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    nav{
+        grid-column: 1/8;
+        height: 130px;
+        line-height: 130px;
+        border-bottom: solid 1px #2B2B28;
+        h1{
+            font-family: 'Playfair Display', serif;
+            font-size: 55px;
+            letter-spacing: 15px;
+            text-align: center;
+            width: 100%;
+        }
+        .cart{
+        }
+    }
+    .filter{
+        grid-column: 1/2;
+        height: 100%;
+    }
+    .products{
+        grid-column: 2/8;
+    }
+}

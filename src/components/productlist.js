@@ -2,6 +2,8 @@ import React, {useState, useContext} from 'react';
 import {ProductContext} from './productContext';
 import Product from './product';
 
+import '../scss/productList.scss';
+
 
 function ProductList(props) {
     let [search, setSearch] = useState('')
@@ -16,20 +18,24 @@ function ProductList(props) {
     }
 
     return (
-        <div>
-            <h2>Product List</h2>
-            <input type="text" onChange={handleSearch} placeholder="Search Products"/><br/>
-            {filterProducts.length} products <br/>
-            {filterProducts.map((item, index) => {
-                return <Product
-                    id={item.id}
-                    name={item.name}
-                    price={item.price}
-                    color={item.color}
-                    size={item.size}
-                    key={index}
-                    handleCartUpdate={props.handleCartUpdate}/>
-            })}
+        <div className="products">
+            {/* <h2>Products</h2> */}
+            <input type="text" className="search" onChange={handleSearch} placeholder="Search"/><br/>
+            <p className="productNo"> {filterProducts.length} Products found</p> <br/>
+            <div className="productList">
+                {filterProducts.map((item, index) => {
+                    return <Product
+                        id={item.id}
+                        name={item.name}
+                        designer={item.designer}
+                        price={item.price}
+                        color={item.color}
+                        size={item.size}
+                        img={item.img}
+                        key={index}
+                        handleCartUpdate={props.handleCartUpdate}/>
+                })}
+            </div>
         </div>
   );
 }
