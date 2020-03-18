@@ -52,41 +52,36 @@ function Filter() {
         })
 
         
-        // if(enabled_filters.length != 0) {
-        //     enabled_filters.forEach((item) => {
-        //         new_Data = data.filter((data) => {
-        //             return data[item.key].includes(item.value)
-        //         })
-        //     })
-        //     setProducts(new_Data)
-        // }
-        // else{
-        //     setProducts(data)
-        // }
+        let refact = enabled_filters.reduce((acc, cur) => {
+            let current = acc[cur.key]
+            if(acc[cur.key] === undefined){
+                acc[cur.key] = [cur.value]
+            }
+            else{
+                acc[cur.key].push(cur.value)
+            }
+            return acc
+        }, {})
 
-        if(enabled_filters.length != 0) {
-            enabled_filters.forEach((item) => {
-                data.forEach((data) => {
-                if (data[item.key].includes(item.value)){
-                    if (new_Data.length === 0){
-                        new_Data.push(data)
-                    }else{
-                        // check if item already present in new Data to avoid redundancy
-                        let isItemAlreadyPresent = new_Data.findIndex((e) => {
-                            return e.id === data.id
-                        })
-                        if(isItemAlreadyPresent === -1){
-                            new_Data.push(data)
-                        }
-                    }
+        console.log(refact)
+
+        // DEVTA FUNCTION
+        let multiPropsFilter = (products, filters) => {
+            const filterKeys = Object.keys(filters);
+            return products.filter(product => {
+              return filterKeys.every(key => {
+                if (!filters[key].length) return true;
+                // Loops again if product[key] is an array (for material attribute).
+                if (Array.isArray(product[key])) {
+                  return product[key].some(keyEle => filters[key].includes(keyEle));
                 }
-                })
-            })
-            setProducts(new_Data)
-        }
-        else{
-            setProducts(data)
-        }
+                return filters[key].includes(product[key]);
+              });
+            });
+        };
+
+        setProducts(multiPropsFilter(data, refact))
+        
 
     }
     return (

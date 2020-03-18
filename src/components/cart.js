@@ -5,7 +5,7 @@ import CartItem from './cartitem';
 import '../scss/cart.scss';
 
 function Cart(props) {
-    let [toggle, setToggle] = useState(true)
+    let [toggle, setToggle] = useState(false)
 
     const handleToggle = () => setToggle(!toggle)
 
