@@ -112,8 +112,10 @@ function Filter() {
             <div>
                 <h3>Designer</h3>
                 <input type="checkbox" name="designer" value="gucci" onClick={handlefilterupdate}/> <label>Gucci</label> <br/>
-                <input type="checkbox" name="designer" value="YSL" onClick={handlefilterupdate}/> <label>YSL</label> <br/>
                 <input type="checkbox" name="designer" value="prada" onClick={handlefilterupdate}/> <label>Prada</label> <br/>
+                <input type="checkbox" name="designer" value="balenciaga" onClick={handlefilterupdate}/> <label>Balenciaga</label> <br/>
+                <input type="checkbox" name="designer" value="fendi" onClick={handlefilterupdate}/> <label>Fendi</label> <br/>
+                <input type="checkbox" name="designer" value="berluti" onClick={handlefilterupdate}/> <label>Berluti</label> <br/>
             </div>
 
         </div>
