@@ -90,12 +90,20 @@ function Filter() {
 
             <div>
                 <h3>Color</h3>
+                <input type="checkbox" name="color" value="black" onClick={handlefilterupdate}/> <label>Black</label> <br/>
+                <input type="checkbox" name="color" value="white" onClick={handlefilterupdate}/> <label>White</label> <br/>
+                <input type="checkbox" name="color" value="brown" onClick={handlefilterupdate}/> <label>Brown</label> <br/>
+                <input type="checkbox" name="color" value="green" onClick={handlefilterupdate}/> <label>Green</label> <br/>
                 <input type="checkbox" name="color" value="red" onClick={handlefilterupdate}/> <label>Red</label> <br/>
                 <input type="checkbox" name="color" value="blue" onClick={handlefilterupdate}/> <label>Blue</label> <br/>
             </div>
 
             <div>
                 <h3>Size</h3>
+                <input type="checkbox" name="size" value="4" onClick={handlefilterupdate}/> <label>4</label> <br/>
+                <input type="checkbox" name="size" value="5" onClick={handlefilterupdate}/> <label>5</label> <br/>
+                <input type="checkbox" name="size" value="6" onClick={handlefilterupdate}/> <label>6</label> <br/>
+                <input type="checkbox" name="size" value="7" onClick={handlefilterupdate}/> <label>7</label> <br/>
                 <input type="checkbox" name="size" value="8" onClick={handlefilterupdate}/> <label>8</label> <br/>
                 <input type="checkbox" name="size" value="9" onClick={handlefilterupdate}/> <label>9</label> <br/>
                 <input type="checkbox" name="size" value="10" onClick={handlefilterupdate}/> <label>10</label> <br/>
@@ -103,9 +111,9 @@ function Filter() {
 
             <div>
                 <h3>Designer</h3>
-                <input type="checkbox" name="designer" value="apple" onClick={handlefilterupdate}/> <label>apple</label> <br/>
-                <input type="checkbox" name="designer" value="oneplus" onClick={handlefilterupdate}/> <label>oneplus</label> <br/>
-                <input type="checkbox" name="designer" value="samsung" onClick={handlefilterupdate}/> <label>samsung</label> <br/>
+                <input type="checkbox" name="designer" value="gucci" onClick={handlefilterupdate}/> <label>Gucci</label> <br/>
+                <input type="checkbox" name="designer" value="YSL" onClick={handlefilterupdate}/> <label>YSL</label> <br/>
+                <input type="checkbox" name="designer" value="prada" onClick={handlefilterupdate}/> <label>Prada</label> <br/>
             </div>
 
         </div>

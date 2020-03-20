@@ -1,47 +1,47 @@
 export const data = [
   {
     "id" : 1,
-    "name": "iphone",
+    "name": "Triple S low-top trainers",
     "img": "https://assetsprx.matchesfashion.com/img/product/1314390_1_zoom.jpg",
     "price" : 400,
-    "designer" : "apple",
+    "designer" : "balenciaga",
     "color" : ["red", "green"],
     "size" : ["8", "9", "10"]
   },  
   {
     "id" : 34,
-    "name": "iphone 11",
+    "name": "New Ace low-top leather trainers",
     "img": "https://assetsprx.matchesfashion.com/img/product/1314390_1_zoom.jpg",
     "price" : 500,
-    "designer" : "apple",
+    "designer" : "gucci",
     "color" : ["green", "blue"],
     "size" : ["8", "9", "10"]
   },
   {
     "id" : 2,
-    "name": "oneplus 6T",
+    "name": "America's Cup mesh trainers",
     "img": "https://assetsprx.matchesfashion.com/img/product/1314390_1_zoom.jpg",
-    "designer" : "oneplus",
+    "designer" : "prada",
     "price" : 400,
     "color" : ["blue", "green"],
-    "size" : ["9", "10"]
+    "size" : ["4","9", "10"]
   },
   {
     "id" : 3,
-    "name": "S10",
+    "name": "FF-jacquard high-top leather trainers",
     "img": "https://assetsprx.matchesfashion.com/img/product/1314390_1_zoom.jpg",
-    "designer" : "samsung",
+    "designer" : "fendi",
     "price" : 500,
     "color" :["red", "pink"],
-    "size" : ["8", "10"]
+    "size" : ["7","8", "10"]
   },
   {
     "id" : 4,
-    "name" : "Moto X",
+    "name" : "Lorenzo grained-leather Oxford shoes",
     "img": "https://assetsprx.matchesfashion.com/img/product/1314390_1_zoom.jpg",
-    "designer": "motorola",
+    "designer": "berluti",
     "price" : 600,
     "color": ["blue", "green"],
-    "size" : ["8", "9"]
+    "size" : ["5", "8", "9"]
   }
 ]
